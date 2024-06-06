@@ -1,0 +1,58 @@
+.item {
+    width: 100%;
+    box-shadow: 0px 0px 10px 0px #00000015;
+    animation: fade 2s;
+}
+
+.itemView .itemImage  {
+    border-radius: 20px 20px 0px 0px;
+    width: 100%;
+}
+
+.itemInfo{
+    padding: 10px;
+}
+
+.itemInfo #name {
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.itemInfo #price {
+    font-weight: 500;
+    font-size: 20px;
+    color: #209693;
+    margin: 10px 0px
+}
+
+.itemView{
+    position: relative;
+}
+
+.counterChanger{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.itemViewCounter{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    bottom: 15px;
+    right: 15px;
+    background-color: white;
+    border-radius: 50px;
+}
+
+.itemViewCounter img{
+    cursor: pointer;
+    width: 30px;
+}
