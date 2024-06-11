@@ -1,58 +1,56 @@
 .item {
-    width: 100%;
-    box-shadow: 0px 0px 10px 0px #00000015;
-    animation: fade 2s;
-}
-
-.itemView .itemImage  {
-    border-radius: 20px 20px 0px 0px;
-    width: 100%;
-}
-
-.itemInfo{
-    padding: 10px;
-}
-
-.itemInfo #name {
-    font-weight: 500;
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.itemInfo #price {
-    font-weight: 500;
-    font-size: 20px;
-    color: #209693;
-    margin: 10px 0px
-}
-
-.itemView{
-    position: relative;
-}
-
-.counterChanger{
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.itemViewCounter{
-    position: absolute;
     display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-left: 1px solid #ddd;
+    padding: 10px;
     align-items: center;
-    gap: 10px;
-    padding: 5px;
-    bottom: 15px;
-    right: 15px;
-    background-color: white;
-    border-radius: 50px;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fade 0.5s;
+
 }
 
-.itemViewCounter img{
-    cursor: pointer;
+.item:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transform: scale(1.05);
+}
+
+.item:hover .cart-icon {
+    opacity: 1;
+    animation: fade 0.5s;
+}
+
+.item-view .item-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+
+}
+
+.item-info #name {
+    font-weight: 500;
+    color: #209693;
+    font-size: 13px;
+}
+
+.item-info #price {
+    margin: 5px;
+    position: relative;
+    bottom: -50px;
+    font-weight: 500;
+    color: #363636;
+    font-size: 18px;
+}
+
+.cart-icon {
+    color: #209693;
+    position: relative;
+    left: 120px;
+    bottom: -15px;
     width: 30px;
+    height: 30px;
+    opacity: 0.3;
+    cursor: pointer;
+
 }

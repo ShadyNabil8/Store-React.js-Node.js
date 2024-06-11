@@ -1,0 +1,11 @@
+.up-home{
+  display: flex;
+  flex-direction: column;
+}
+
+.down-home {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-top: 60px;
+  }

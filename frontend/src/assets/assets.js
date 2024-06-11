@@ -103,73 +103,368 @@ export const items_list = [
         name: "Arduino Due – China Clone",
         image: food_1,
         price: 12,
-        category: "Boards"
+        category: "Arduino"
     },
     {
         _id: "2",
         name: "Arduino Mega2560 Rev3 – China Clone",
         image: food_2,
         price: 18,
-        category: "Boards"
+        category: "Arduino"
     }, {
         _id: "3",
         name: "Arduino Nano mini _ China Clone",
         image: food_3,
         price: 16,
-        category: "Boards"
+        category: "Arduino"
     }, {
         _id: "4",
         name: "Arduino Pro Mini 328 5V-16Mhz _China Clone",
         image: food_4,
         price: 24,
-        category: "Boards"
+        category: "Arduino"
     }, {
         _id: "5",
         name: "Arduino UNO Rev3 – China Clone",
         image: food_5,
         price: 14,
-        category: "Boards"
+        category: "Arduino"
     }, {
         _id: "6",
         name: "Raspberry Pi 3 Model B+ MADE IN UK.",
         image: food_6,
         price: 12,
-        category: "Boards"
+        category: "Rasbpery PI"
     }, {
         _id: "7",
         name: "Raspberry Pi 3B – 1GB –V1.2 element14 china",
         image: food_7,
         price: 20,
-        category: "Boards"
+        category: "Rasbpery PI"
     }, {
         _id: "8",
         name: "Raspberry Pi 4 Model B- 4GB – E14 Version – MADE IN UK",
         image: food_8,
         price: 15,
-        category: "Boards"
+        category: "Rasbpery PI"
     }, {
         _id: "9",
         name: "Raspberry Pi 4 Model B- 4GB – E14 Version – MADE IN UK",
         image: food_9,
         price: 14,
-        category: "Boards"
+        category: "Rasbpery PI"
     }, {
         _id: "10",
         name: "Raspberry Pi Pico W",
         image: food_10,
         price: 22,
-        category: "Boards"
+        category: "Rasbpery PI"
     }, {
         _id: "11",
         name: "Raspberry Pi Pico",
         image: food_11,
         price: 10,
-        category: "Boards"
+        category: "Rasbpery PI"
     }, {
         _id: "12",
         name: "Raspberry Pi Zero",
         image: food_12,
         price: 12,
-        category: "Boards"
+        category: "Rasbpery PI"
+    },
+    {
+        _id: "1",
+        name: "Arduino Due – China Clone",
+        image: food_1,
+        price: 12,
+        category: "Arduino"
+    },
+    {
+        _id: "2",
+        name: "Arduino Mega2560 Rev3 – China Clone",
+        image: food_2,
+        price: 18,
+        category: "Arduino"
+    }, {
+        _id: "3",
+        name: "Arduino Nano mini _ China Clone",
+        image: food_3,
+        price: 16,
+        category: "Arduino"
+    }, {
+        _id: "4",
+        name: "Arduino Pro Mini 328 5V-16Mhz _China Clone",
+        image: food_4,
+        price: 24,
+        category: "Arduino"
+    }, {
+        _id: "5",
+        name: "Arduino UNO Rev3 – China Clone",
+        image: food_5,
+        price: 14,
+        category: "Arduino"
+    }, {
+        _id: "6",
+        name: "Raspberry Pi 3 Model B+ MADE IN UK.",
+        image: food_6,
+        price: 12,
+        category: "Rasbpery PI"
+    }, {
+        _id: "7",
+        name: "Raspberry Pi 3B – 1GB –V1.2 element14 china",
+        image: food_7,
+        price: 20,
+        category: "Rasbpery PI"
+    }, {
+        _id: "8",
+        name: "Raspberry Pi 4 Model B- 4GB – E14 Version – MADE IN UK",
+        image: food_8,
+        price: 15,
+        category: "Rasbpery PI"
+    }, {
+        _id: "9",
+        name: "Raspberry Pi 4 Model B- 4GB – E14 Version – MADE IN UK",
+        image: food_9,
+        price: 14,
+        category: "Rasbpery PI"
+    }, {
+        _id: "10",
+        name: "Raspberry Pi Pico W",
+        image: food_10,
+        price: 22,
+        category: "Rasbpery PI"
+    }, {
+        _id: "11",
+        name: "Raspberry Pi Pico",
+        image: food_11,
+        price: 10,
+        category: "Rasbpery PI"
+    }, {
+        _id: "12",
+        name: "Raspberry Pi Zero",
+        image: food_12,
+        price: 12,
+        category: "Rasbpery PI"
+    },{
+        _id: "1",
+        name: "Arduino Due – China Clone",
+        image: food_1,
+        price: 12,
+        category: "Arduino"
+    },
+    {
+        _id: "2",
+        name: "Arduino Mega2560 Rev3 – China Clone",
+        image: food_2,
+        price: 18,
+        category: "Arduino"
+    }, {
+        _id: "3",
+        name: "Arduino Nano mini _ China Clone",
+        image: food_3,
+        price: 16,
+        category: "Arduino"
+    }, {
+        _id: "4",
+        name: "Arduino Pro Mini 328 5V-16Mhz _China Clone",
+        image: food_4,
+        price: 24,
+        category: "Arduino"
+    }, {
+        _id: "5",
+        name: "Arduino UNO Rev3 – China Clone",
+        image: food_5,
+        price: 14,
+        category: "Arduino"
+    }, {
+        _id: "6",
+        name: "Raspberry Pi 3 Model B+ MADE IN UK.",
+        image: food_6,
+        price: 12,
+        category: "Rasbpery PI"
+    }, {
+        _id: "7",
+        name: "Raspberry Pi 3B – 1GB –V1.2 element14 china",
+        image: food_7,
+        price: 20,
+        category: "Rasbpery PI"
+    }, {
+        _id: "8",
+        name: "Raspberry Pi 4 Model B- 4GB – E14 Version – MADE IN UK",
+        image: food_8,
+        price: 15,
+        category: "Rasbpery PI"
+    }, {
+        _id: "9",
+        name: "Raspberry Pi 4 Model B- 4GB – E14 Version – MADE IN UK",
+        image: food_9,
+        price: 14,
+        category: "Rasbpery PI"
+    }, {
+        _id: "10",
+        name: "Raspberry Pi Pico W",
+        image: food_10,
+        price: 22,
+        category: "Rasbpery PI"
+    }, {
+        _id: "11",
+        name: "Raspberry Pi Pico",
+        image: food_11,
+        price: 10,
+        category: "Rasbpery PI"
+    }, {
+        _id: "12",
+        name: "Raspberry Pi Zero",
+        image: food_12,
+        price: 12,
+        category: "Rasbpery PI"
+    },
+    {
+        _id: "1",
+        name: "Arduino Due – China Clone",
+        image: food_1,
+        price: 12,
+        category: "Arduino"
+    },
+    {
+        _id: "2",
+        name: "Arduino Mega2560 Rev3 – China Clone",
+        image: food_2,
+        price: 18,
+        category: "Arduino"
+    }, {
+        _id: "3",
+        name: "Arduino Nano mini _ China Clone",
+        image: food_3,
+        price: 16,
+        category: "Arduino"
+    }, {
+        _id: "4",
+        name: "Arduino Pro Mini 328 5V-16Mhz _China Clone",
+        image: food_4,
+        price: 24,
+        category: "Arduino"
+    }, {
+        _id: "5",
+        name: "Arduino UNO Rev3 – China Clone",
+        image: food_5,
+        price: 14,
+        category: "Arduino"
+    }, {
+        _id: "6",
+        name: "Raspberry Pi 3 Model B+ MADE IN UK.",
+        image: food_6,
+        price: 12,
+        category: "Rasbpery PI"
+    }, {
+        _id: "7",
+        name: "Raspberry Pi 3B – 1GB –V1.2 element14 china",
+        image: food_7,
+        price: 20,
+        category: "Rasbpery PI"
+    }, {
+        _id: "8",
+        name: "Raspberry Pi 4 Model B- 4GB – E14 Version – MADE IN UK",
+        image: food_8,
+        price: 15,
+        category: "Rasbpery PI"
+    }, {
+        _id: "9",
+        name: "Raspberry Pi 4 Model B- 4GB – E14 Version – MADE IN UK",
+        image: food_9,
+        price: 14,
+        category: "Rasbpery PI"
+    }, {
+        _id: "10",
+        name: "Raspberry Pi Pico W",
+        image: food_10,
+        price: 22,
+        category: "Rasbpery PI"
+    }, {
+        _id: "11",
+        name: "Raspberry Pi Pico",
+        image: food_11,
+        price: 10,
+        category: "Rasbpery PI"
+    }, {
+        _id: "12",
+        name: "Raspberry Pi Zero",
+        image: food_12,
+        price: 12,
+        category: "Rasbpery PI"
+    },
+    {
+        _id: "1",
+        name: "Arduino Due – China Clone",
+        image: food_1,
+        price: 12,
+        category: "Arduino"
+    },
+    {
+        _id: "2",
+        name: "Arduino Mega2560 Rev3 – China Clone",
+        image: food_2,
+        price: 18,
+        category: "Arduino"
+    }, {
+        _id: "3",
+        name: "Arduino Nano mini _ China Clone",
+        image: food_3,
+        price: 16,
+        category: "Arduino"
+    }, {
+        _id: "4",
+        name: "Arduino Pro Mini 328 5V-16Mhz _China Clone",
+        image: food_4,
+        price: 24,
+        category: "Arduino"
+    }, {
+        _id: "5",
+        name: "Arduino UNO Rev3 – China Clone",
+        image: food_5,
+        price: 14,
+        category: "Arduino"
+    }, {
+        _id: "6",
+        name: "Raspberry Pi 3 Model B+ MADE IN UK.",
+        image: food_6,
+        price: 12,
+        category: "Rasbpery PI"
+    }, {
+        _id: "7",
+        name: "Raspberry Pi 3B – 1GB –V1.2 element14 china",
+        image: food_7,
+        price: 20,
+        category: "Rasbpery PI"
+    }, {
+        _id: "8",
+        name: "Raspberry Pi 4 Model B- 4GB – E14 Version – MADE IN UK",
+        image: food_8,
+        price: 15,
+        category: "Rasbpery PI"
+    }, {
+        _id: "9",
+        name: "Raspberry Pi 4 Model B- 4GB – E14 Version – MADE IN UK",
+        image: food_9,
+        price: 14,
+        category: "Rasbpery PI"
+    }, {
+        _id: "10",
+        name: "Raspberry Pi Pico W",
+        image: food_10,
+        price: 22,
+        category: "Rasbpery PI"
+    }, {
+        _id: "11",
+        name: "Raspberry Pi Pico",
+        image: food_11,
+        price: 10,
+        category: "Rasbpery PI"
+    }, {
+        _id: "12",
+        name: "Raspberry Pi Zero",
+        image: food_12,
+        price: 12,
+        category: "Rasbpery PI"
     }
 ]

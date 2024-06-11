@@ -1,14 +1,9 @@
-.itemsExplore h2 {
-    font-weight: 500;
-    font-size: 32px;
-    color: #209693;
-
-}
-
-.itemsList {
-    margin-top: 20px;
+.items-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 30px;
-    row-gap: 50px;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    width: 100%;
+    box-sizing: border-box;
+    grid-row-gap: 40px; /* Gap between rows */
+    grid-column-gap: 20px; /* Gap between columns */
+    grid-auto-rows: 320px;
 }

@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { assets } from '../../assets/assets'
 import './Item.css'
-
+import { FaCartArrowDown } from "react-icons/fa";
+import { IoArrowRedoCircle } from "react-icons/io5";
 import { itemsContext } from '../../Contexts/StoreContext'
 
 const Item = ({ id, name, image, price, category }) => {
@@ -9,23 +10,18 @@ const Item = ({ id, name, image, price, category }) => {
 
     return (
         <div className='item'>
-            <div className='itemView'>
-                <img className='itemImage' src={image}></img>
+            <div className='item-view'>
+                <img className='item-image' src={image}></img>
+                <div className='item-info'>
+                    <p id='name'>{name}</p>
+                    <p id='price'>{price}$</p>
+                </div>
+
                 {
                     !cartItems[id]
-                        ? <img className='counterChanger' src={assets.add_icon_white} onClick={() => { addToCart(id) }}>
-
-                        </img>
-                        : <div className='itemViewCounter'>
-                            <img className='add' src={assets.add_icon_green} onClick={() => { addToCart(id) }}></img>
-                            <p>{cartItems[id]}</p>
-                            <img className='sub' src={assets.remove_icon_red} onClick={() => { removeFromCart(id) }}></img>
-                        </div>
+                        ? <div className='cart-icon-div' onClick={() => { addToCart(id) }}><FaCartArrowDown className='cart-icon' /></div>
+                        : <div className='view-cart-icon-div'><IoArrowRedoCircle className='cart-icon' /></div>
                 }
-            </div>
-            <div className='itemInfo'>
-                <p id='name'>{name}</p>
-                <p id='price'>{price}$</p>
             </div>
         </div>
     )
