@@ -23,7 +23,7 @@
     height: 100%;
     width: 250px;
     background-color: transparent;
-    color: #363636;
+    color: #3c3b3b;
 }
 
 .search-bar input:focus {
@@ -37,7 +37,7 @@
     margin-right: 5px;
     height: 100%;
     font-weight: 300;
-    color: #363636;
+    color: #3c3b3b;
 }
 
 .search-bar select:focus {

@@ -1,40 +1,43 @@
-.item {
+#item {
+}
+
+.grid-item {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
     justify-content: space-between;
-    border-left: 1px solid #ddd;
-    padding: 10px;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    padding-top: 30px;
     align-items: center;
     justify-content: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     animation: fade 0.5s;
-
 }
 
-.item:hover {
+.grid-item:hover {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     transform: scale(1.05);
 }
 
-.item:hover .cart-icon {
+.grid-item:hover .cart-icon {
     opacity: 1;
-    animation: fade 0.5s;
+
 }
 
-.item .item-image{
+.grid-item .item-image {
     height: 60%;
     width: 100%;
 }
 
-.item .item-image img {
+.grid-item .item-image img {
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
 
 }
 
-.item-cart {
+.grid-item .item-cart {
     width: 100%;
     height: 20%;
     display: flex;
@@ -42,22 +45,29 @@
     align-items: center;
 }
 
-.item-name{
+.grid-item .item-name {
     width: 100%;
     height: 20%;
+}
+
+.grid-item .item-name p {
+    font-size: 13px;
 }
 
 #name {
     font-weight: 500;
     color: #209693;
-    font-size: 13px;
 }
 
 #price {
-    margin: 5px;
-    color: #363636;
+    font-weight: 250;
+    color: #3c3b3b;
+}
+
+.grid-item .item-cart .price {
     font-size: 18px;
 }
+
 
 .cart-icon {
     color: #209693;
@@ -65,4 +75,73 @@
     height: 30px;
     opacity: 0.1;
     cursor: pointer;
+}
+
+.flex-item {
+    display: flex;
+    height: 200px;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+.flex-item .item-image {
+    height: 100%;
+    width: 30%;
+}
+
+.flex-item .item-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+
+}
+
+.flex-item .item-name {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: 100%;
+    justify-content: start;
+    align-items: start;
+    padding: 25px;
+}
+
+.flex-item .item-name p {
+    font-size: 20px;
+}
+
+.flex-item .item-cart {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 100%;
+    justify-content: start;
+    align-items: start;
+    padding: 25px;
+
+}
+
+.flex-item .item-cart .price {
+    font-size: 24px;
+}
+
+.flex-item .item-cart .add-btn {
+    width: 100%;
+    background-color: #209693;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    border-radius: 100px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-item .item-cart .add-btn:hover {
+    background-color: #222831;
 }
