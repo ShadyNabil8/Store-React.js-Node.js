@@ -1,26 +1,38 @@
 import React, { useState } from 'react'
 import './NavBar.css'
 import { assets } from '../../assets/assets'
+import { CiDeliveryTruck } from "react-icons/ci";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
+import { GoPerson } from "react-icons/go";
+
+
+
 const NavBar = () => {
     const [menu, setMenu] = useState('menu')
     return (
-        <div className='navbar'>
-            <img src={assets.logo} className='logo'></img>
-            <ul className='navbar_menu'>
-                <li onClick={() => { setMenu('home') }} className={menu === 'home' ? 'active' : ''}>Home</li>
-                <li onClick={() => { setMenu('menu') }} className={menu === 'menu' ? 'active' : ''}>menu</li>
-                <li onClick={() => { setMenu('mobileApp') }} className={menu === 'mobileApp' ? 'active' : ''}>mobile app</li>
-                <li onClick={() => { setMenu('contactUs') }} className={menu === 'contactUs' ? 'active' : ''}>contact us</li>
-            </ul>
-            <div className='navbar_right'>
-                <img src={assets.search_icon} alt="" />
-                <div className='navbar_search_icon'>
-                    <img src={assets.basket_icon} alt="" />
-                    <div className='dot'></div>
+        <>
+            <div className='navbar'>
+                <div className='welcome-msg'>
+                    <p>Welcome to Worldwide Electronics Store</p>
                 </div>
-                <button>Sign in</button>
+                <div className="nav">
+                    <div>
+                        <CiDeliveryTruck />
+                        <p>Track Your Order</p>
+                    </div>
+                    <div>
+                        <HiOutlineShoppingBag />
+                        <p>Shop</p>
+
+                    </div>
+                    <div>
+                        <GoPerson />
+                        <p>My Account</p>
+
+                    </div>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 

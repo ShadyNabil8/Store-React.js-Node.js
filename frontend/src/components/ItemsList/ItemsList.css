@@ -3,7 +3,7 @@
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
     width: 100%;
     box-sizing: border-box;
-    grid-row-gap: 40px; /* Gap between rows */
-    grid-column-gap: 20px; /* Gap between columns */
+    grid-row-gap: 40px; 
+    grid-column-gap: 20px;
     grid-auto-rows: 320px;
 }

@@ -10,19 +10,23 @@ const Item = ({ id, name, image, price, category }) => {
 
     return (
         <div className='item'>
-            <div className='item-view'>
-                <img className='item-image' src={image}></img>
-                <div className='item-info'>
-                    <p id='name'>{name}</p>
-                    <p id='price'>{price}$</p>
-                </div>
+            <div className="item-image">
+                <img src={image}></img>
+            </div>
 
+            <div className="item-name">
+                <p id='name'>{name}</p>
+            </div>
+            <div className="item-cart">
+                <p id='price'>EGP {price}</p>
                 {
                     !cartItems[id]
                         ? <div className='cart-icon-div' onClick={() => { addToCart(id) }}><FaCartArrowDown className='cart-icon' /></div>
                         : <div className='view-cart-icon-div'><IoArrowRedoCircle className='cart-icon' /></div>
                 }
             </div>
+
+
         </div>
     )
 }
