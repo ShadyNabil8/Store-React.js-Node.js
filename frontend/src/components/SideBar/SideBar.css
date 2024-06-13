@@ -39,3 +39,9 @@
   margin-top: 5px;
   cursor: pointer;
 }
+
+@media (max-width: 1200px) {
+  .sidebar{
+    display: none;
+  }
+}

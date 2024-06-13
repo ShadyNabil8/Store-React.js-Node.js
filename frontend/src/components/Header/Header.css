@@ -1,19 +1,19 @@
 .header {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     box-sizing: border-box;
-    grid-column-gap: 20px;
-    width: 100%;
+    grid-column-gap: 10px;
+    width: 80%;
     margin: 10px;
-    
+    margin-top: 30px;
+
 }
 
 .search-bar {
-    display: inline-flex;
+    display: flex;
     border: 2px solid #209693;
-    height: 40px;
     border-radius: 100px;
-    align-items: center;
+    height: 40px;
 }
 
 .search-bar input {
@@ -21,9 +21,9 @@
     margin-right: 5px;
     margin-left: 10px;
     height: 100%;
-    width: 250px;
     background-color: transparent;
     color: #3c3b3b;
+    width: 100%;
 }
 
 .search-bar input:focus {
@@ -45,10 +45,10 @@
 }
 
 .search-bar button {
-    border: 2px solid #209693;
     background-color: #209693;
+    border: none;
     height: 100%;
-    width: 50px;
+    width: 60px;
     padding: 5px;
     border-top-right-radius: 100px;
     border-bottom-right-radius: 100px;
@@ -66,36 +66,79 @@
     flex-direction: column;
     align-items: center;
 }
-.logo p{
-    position: relative;
-    bottom: 30px;
-    right: 5px;
+
+.logo p {
     font-weight: 500;
     font-size: 24px;
-    color: #209693;;
+    color: #209693;
 }
 
 .logo img {
     width: 300px;
-    height: 200px;
+    height: 100px;
     object-fit: contain;
     margin: 0 auto;
 }
 
-.cart-items{
+.cart-items {
     display: flex;
     align-items: center;
     justify-content: center;
-} 
+}
 
-.bag-icon{
+.bag-icon {
     height: 30px;
     width: 30px;
     color: #363636;
-
 }
 
-.cart-items p{
+.cart-items p {
     font-weight: 500;
     font-size: 16px;
-} 
+}
+
+.small-header{
+    display: none;
+    justify-content: space-between;
+    border-top: 10px solid #209693;
+    width: 100%;
+    padding: 35px;
+
+}
+.small-header .left-header{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    color: #209693;
+}
+.small-header .left-header .list-icon{
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.small-header .left-header .small-logo img{
+    width: 100%;
+    height: 40px;
+}
+
+.small-header .right-header{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #209693;
+}
+.small-header .right-header .right-icon{
+    height: 25px;
+    width: 25px;
+}
+
+@media (max-width: 1200px) {
+    .header{
+        display: none;
+    }
+    .small-header{
+        display: flex;
+    }
+}
+

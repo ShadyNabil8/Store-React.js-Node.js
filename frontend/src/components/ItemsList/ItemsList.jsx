@@ -8,7 +8,7 @@ import { BsFillGrid3X3GapFill } from "react-icons/bs";
 
 
 const ItemsList = ({ selectedCategory }) => {
-    const [display, setDisplay] = useState('flex');
+    const [display, setDisplay] = useState('grid');
     const { items_list } = useContext(itemsContext)
 
     return (
@@ -27,7 +27,7 @@ const ItemsList = ({ selectedCategory }) => {
                     />
                 </div>
                 <div className='filters'>
-                    <select name="sorting" id="">
+                    <select name="sorting" id="" className='sorting'>
                         <option value="default">Default sorting</option>
                         <option value="popularity">Sort by popularity</option>
                         <option value="average">Sort by average rating</option>
@@ -35,7 +35,7 @@ const ItemsList = ({ selectedCategory }) => {
                         <option value="price_h_l">Sort by price: high to low</option>
                         <option value="price_l_h">Sort by price: low to hight</option>
                     </select>
-                    <select name="batching" id="">
+                    <select name="batching" id="" className='batching'>
                         <option value="all">Show all</option>
                         <option value="32">Show 32</option>
                         <option value="16">Show 16</option>

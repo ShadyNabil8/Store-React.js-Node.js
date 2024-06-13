@@ -4,7 +4,9 @@
     align-items: center;
     width: 100%;
     border-bottom: 1px solid #ddd;
-    padding: 5px;
+    border-top: 10px solid #209693;
+    padding-right: 200px;
+    padding-left: 200px;
 }
 
 p {
@@ -29,4 +31,12 @@ p {
     padding-right: 10px;
     display: flex;
     margin: 5px;
+    align-items: center;
+}
+
+
+@media (max-width:1200px) {
+    .navbar{
+        display: none;
+    }
 }
