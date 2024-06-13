@@ -6,7 +6,7 @@ import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { PiListBold } from "react-icons/pi";
 import { GoPerson } from "react-icons/go";
 
-const Header = () => {
+const Header = ({ setSidebarOpen, sidebarOpen }) => {
   return (
     <>
       <div className='header'>
@@ -37,14 +37,14 @@ const Header = () => {
       </div>
       <div className='small-header'>
         <div className="left-header">
-          <PiListBold className='list-icon'/>
+          <PiListBold className='list-icon' onClick={() => { setSidebarOpen(!sidebarOpen) }} />
           <div className="small-logo">
             <img src={assets.logo}></img>
           </div>
         </div>
         <div className="right-header">
-          <CiSearch className='right-icon'/>
-          <GoPerson className='right-icon'/>
+          <CiSearch className='right-icon' />
+          <GoPerson className='right-icon' />
           <HiOutlineShoppingBag className='right-icon' />
         </div>
       </div>

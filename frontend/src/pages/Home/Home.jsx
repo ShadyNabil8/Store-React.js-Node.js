@@ -5,14 +5,18 @@ import ItemsList from '../../components/ItemsList/ItemsList'
 import './Home.css'
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState('all')
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
-    <div className='up-home'>
-      <Header></Header>
-      <div className='down-home'>
-        <SideBar setSelectedCategory={setSelectedCategory} ></SideBar>
-        <ItemsList selectedCategory={selectedCategory}></ItemsList>
+    <>
+      <div className={(sidebarOpen) ? "overlay overlay-show" : "overlay"} onClick={() => { setSidebarOpen(!sidebarOpen) }}></div>
+      <div className='up-home'>
+        <Header setSidebarOpen={setSidebarOpen} sidebarOpen={sidebarOpen}></Header>
+        <div className='down-home'>
+          <SideBar setSelectedCategory={setSelectedCategory} sidebarOpen={sidebarOpen}></SideBar>
+          <ItemsList selectedCategory={selectedCategory}></ItemsList>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

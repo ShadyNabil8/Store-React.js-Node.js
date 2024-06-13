@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { FaAngleDown, FaAngleRight } from 'react-icons/fa';
 import { sidebarData } from './SidebarData'
 import './SideBar.css';
-const SidebarItem = ({ name, children, setSelectedCategory }) => {
+const SidebarItem = ({ name, children, setSelectedCategory, sidebarOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -20,27 +20,28 @@ const SidebarItem = ({ name, children, setSelectedCategory }) => {
   );
 };
 
-const Sidebar = ({ setSelectedCategory }) => {
+const Sidebar = ({ setSelectedCategory,sidebarOpen }) => {
   return (
-
-    <div className="sidebar">
-      {
-        sidebarData.map((category, index) => {
-          return (
-            <SidebarItem key={index} name={category.name} setSelectedCategory={setSelectedCategory}>
-              {
-                (category.subCategories != null) && category.subCategories.map((subCategory,index) => <div key={index} name className="sidebar-subitem" onClick={() => {
-                  setSelectedCategory(subCategory)
-                }}>
-                  {subCategory}
-                </div>
-                )
-              }
-            </SidebarItem>
-          )
-        })
-      }
-    </div>
+    <>
+      <div className={(sidebarOpen) ? 'sidebar sidebar-overlay' : 'sidebar'}>
+        {
+          sidebarData.map((category, index) => {
+            return (
+              <SidebarItem key={index} name={category.name} setSelectedCategory={setSelectedCategory}>
+                {
+                  (category.subCategories != null) && category.subCategories.map((subCategory, index) => <div key={index} name className="sidebar-subitem" onClick={() => {
+                    setSelectedCategory(subCategory)
+                  }}>
+                    {subCategory}
+                  </div>
+                  )
+                }
+              </SidebarItem>
+            )
+          })
+        }
+      </div>
+    </>
   );
 };
 
