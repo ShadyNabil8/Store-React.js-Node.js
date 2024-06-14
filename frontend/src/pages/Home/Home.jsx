@@ -8,7 +8,7 @@ const Home = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <>
-      <div className={(sidebarOpen) ? "overlay overlay-show" : "overlay"} onClick={() => { setSidebarOpen(!sidebarOpen) }}></div>
+      <div className={(sidebarOpen) ? "overlay overlay-show" : "overlay"} onClick={() => { setSidebarOpen(false)}}></div>
       <div className='up-home'>
         <Header setSidebarOpen={setSidebarOpen} sidebarOpen={sidebarOpen}></Header>
         <div className='down-home'>
