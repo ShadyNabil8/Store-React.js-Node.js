@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { FaAngleDown, FaAngleRight } from 'react-icons/fa';
 import { sidebarData } from './SidebarData'
 import './SideBar.css';
-const SidebarItem = ({ name, children, setSelectedCategory, sidebarOpen }) => {
+const SidebarItem = ({ name, children, setSelectedCategory }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -20,10 +20,10 @@ const SidebarItem = ({ name, children, setSelectedCategory, sidebarOpen }) => {
   );
 };
 
-const Sidebar = ({ setSelectedCategory,sidebarOpen }) => {
+const Sidebar = ({ setSelectedCategory,slidingSidebar,sidebarPosition }) => {
   return (
     <>
-      <div className={(sidebarOpen) ? 'sidebar sidebar-overlay' : 'sidebar'}>
+      <div className={(sidebarPosition === 'normal') ? 'sidebar' : ((slidingSidebar) ? 'sliding-sidebar sliding-sidebar-show' : 'sliding-sidebar')}>
         {
           sidebarData.map((category, index) => {
             return (

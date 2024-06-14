@@ -1,11 +1,4 @@
-.up-home {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-}
-
-.down-home {
+.home {
   display: flex;
   gap: 30px;
   width: 80%;

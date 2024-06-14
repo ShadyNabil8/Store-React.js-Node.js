@@ -6,7 +6,7 @@ import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { PiListBold } from "react-icons/pi";
 import { GoPerson } from "react-icons/go";
 
-const Header = ({ setSidebarOpen, sidebarOpen }) => {
+const Header = ({ setSlidingSidebar, slidingSidebar }) => {
   return (
     <>
       <div className='header'>
@@ -37,7 +37,7 @@ const Header = ({ setSidebarOpen, sidebarOpen }) => {
       </div>
       <div className='small-header'>
         <div className="left-header">
-          <PiListBold className='list-icon' onClick={() => { setSidebarOpen(!sidebarOpen) }} />
+          <PiListBold className='list-icon' onClick={() => { setSlidingSidebar(!slidingSidebar) }} />
           <div className="small-logo">
             <img src={assets.logo}></img>
           </div>
