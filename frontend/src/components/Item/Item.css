@@ -1,11 +1,9 @@
-#item {
-}
+#item {}
 
 .grid-item {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    justify-content: space-between;
     border-right: 1px solid #ddd;
     padding: 20px;
     padding-top: 30px;
@@ -26,8 +24,10 @@
 }
 
 .grid-item .item-image {
-    height: 60%;
+    height: 70%;
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .grid-item .item-image img {
@@ -39,7 +39,6 @@
 
 .grid-item .item-cart {
     width: 100%;
-    height: 20%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -47,11 +46,10 @@
 
 .grid-item .item-name {
     width: 100%;
-    height: 20%;
 }
 
 .grid-item .item-name p {
-    font-size: 13px;
+    font-size: 16px;
 }
 
 #name {
@@ -81,45 +79,51 @@
     display: flex;
     height: 200px;
     width: 100%;
-    justify-content: space-between;
     border-bottom: 1px solid #ddd;
-    padding: 10px;
+    padding: 0px 20px;
 }
 
 .flex-item .item-image {
     height: 100%;
-    width: 30%;
+    display: flex;
+    justify-content: center;
 }
 
 .flex-item .item-image img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: cover;
-
+    object-fit: contain;
 }
 
 .flex-item .item-name {
     display: flex;
     flex-direction: column;
-    width: 45%;
     height: 100%;
-    justify-content: start;
-    align-items: start;
+    justify-content: flex-start;
+    align-items: flex-start;
     padding: 25px;
+    flex: 1;
 }
 
 .flex-item .item-name p {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .flex-item .item-cart {
     display: flex;
-    flex-direction: column;
-    width: 25%;
-    height: 100%;
-    justify-content: start;
-    align-items: start;
-    padding: 25px;
+    padding: 10px 0px;
+    height: fit-content;
+    gap: 80px;
+    border-bottom: #ddd 1px solid;
+}
+
+.flex-item .cart-icon {
+    height: 35px;
+    width:  35px;
+}
+
+.flex-item:hover .cart-icon {
+    opacity: 1;
 
 }
 
@@ -127,12 +131,11 @@
     font-size: 24px;
 }
 
-.flex-item .item-cart .add-btn {
+/* .flex-item .item-cart .add-btn {
     width: 100%;
     background-color: #209693;
     color: white;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 40px;
     border: none;
     border-radius: 100px;
     font-size: 16px;
@@ -144,4 +147,10 @@
 
 .flex-item .item-cart .add-btn:hover {
     background-color: #222831;
+} */
+
+@media (max-width:770px){
+    .flex-item .item-cart {
+        display: none;
+    }
 }

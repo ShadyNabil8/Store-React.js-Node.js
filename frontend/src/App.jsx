@@ -28,15 +28,15 @@ const App = () => {
 
       </SideBar>
 
-      {/* <Home
+      <Home
         slidingSidebar={slidingSidebar}
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}>
-      </Home> */}
+      </Home>
       
-      <Login>
+      {/* <Login>
 
-      </Login>
+      </Login> */}
     </div>
   )
 }

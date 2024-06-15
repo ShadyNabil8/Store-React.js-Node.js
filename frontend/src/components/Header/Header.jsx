@@ -36,6 +36,7 @@ const Header = ({ setSlidingSidebar, slidingSidebar }) => {
         </div>
       </div>
       <div className='small-header'>
+        <div className='border-div'></div>
         <div className="left-header">
           <PiListBold className='list-icon' onClick={() => { setSlidingSidebar(!slidingSidebar) }} />
           <div className="small-logo">

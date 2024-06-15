@@ -35,17 +35,9 @@ const Item = ({ id, name, image, price, category, display }) => {
             <div className="item-cart">
                 <p id='price' className='price'>EGP {price}</p>
                 {
-                    display === 'flex'
-                        ? (
-                            <button className='add-btn' onClick={!cartItems[id] ? () => { addToCart(id) } : () => {/*do nothing until view cart*/ }}>
-                                {!cartItems[id] ? 'Add To Cart' : <>View Cart <MdArrowRightAlt /></>}
-                            </button>
-                        )
-                        : (
-                            !cartItems[id]
-                                ? <div className='cart-icon-div' onClick={() => { addToCart(id) }}><FaCartArrowDown className='cart-icon' /></div>
-                                : <div className='view-cart-icon-div'><IoArrowRedoCircle className='cart-icon' /></div>
-                        )
+                    !cartItems[id]
+                        ? <div className='cart-icon-div' onClick={() => { addToCart(id) }}><FaCartArrowDown className='cart-icon' /></div>
+                        : <div className='view-cart-icon-div'><IoArrowRedoCircle className='cart-icon' /></div>
                 }
             </div>
         </div>
