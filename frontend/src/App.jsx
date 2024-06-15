@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import NavBar from './components/NavBar/NavBar'
 import Header from './components/Header/Header'
 import SideBar from './components/SideBar/SideBar'
+import Footer from './components/Footer/Footer'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home/Home'
 import Login from './pages/Login/Login'
@@ -37,6 +38,10 @@ const App = () => {
       {/* <Login>
 
       </Login> */}
+
+      <Footer>
+        
+      </Footer>
     </div>
   )
 }

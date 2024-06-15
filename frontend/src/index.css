@@ -34,7 +34,7 @@
   background-color: rgba(0, 0, 0, 0.6);
   visibility: hidden;
   opacity: 0;
-  z-index: 1;
+  z-index: 3;
 }
 
 .overlay-show {
