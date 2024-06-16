@@ -5,6 +5,7 @@ import { CiSearch } from "react-icons/ci";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { PiListBold } from "react-icons/pi";
 import { GoPerson } from "react-icons/go";
+import { Link } from 'react-router-dom';
 
 const Header = ({ setSlidingSidebar, slidingSidebar }) => {
   return (
@@ -15,7 +16,7 @@ const Header = ({ setSlidingSidebar, slidingSidebar }) => {
           <p>EGP 950.00</p>
         </div>
         <div className="logo">
-          <img src={assets.logo}></img>
+          <Link to='/'><img src={assets.logo}></img></Link>
           <p>Electronics Store</p>
         </div>
         <div className="search-bar">

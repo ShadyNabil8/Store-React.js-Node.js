@@ -4,6 +4,7 @@ import { assets } from '../../assets/assets'
 import { CiDeliveryTruck } from "react-icons/ci";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { GoPerson } from "react-icons/go";
+import { Link } from 'react-router-dom';
 
 
 
@@ -16,20 +17,19 @@ const NavBar = () => {
                     <p>Welcome to Worldwide Electronics Store</p>
                 </div>
                 <div className="nav">
-                    <div>
+                    <div className='icon'>
                         <CiDeliveryTruck />
                         <p>Track Your Order</p>
                     </div>
-                    <div>
+                    <div className='icon'>
                         <HiOutlineShoppingBag />
                         <p>Shop</p>
 
                     </div>
-                    <div>
+                    <Link className='icon' to='/login'>
                         <GoPerson />
                         <p>My Account</p>
-
-                    </div>
+                    </Link>
                 </div>
             </div>
         </>

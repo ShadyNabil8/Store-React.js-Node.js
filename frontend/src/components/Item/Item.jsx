@@ -17,7 +17,8 @@ const Item = ({ id, name, image, price, category, display }) => {
                                 <img src={image}></img>
                             </div>
                             <div className="item-name">
-                                <p id='name'>{name}</p>
+                                <p id='name' className='name'>{name}</p>
+                                <p id='price' className='price'>EGP {price}</p>
                             </div>
                         </>
                     )

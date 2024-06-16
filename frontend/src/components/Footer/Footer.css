@@ -80,28 +80,59 @@
     display: flex;
     gap: 15px;
 
-    .icon{
+    .icon {
         width: 20px;
         height: 20px;
         color: rgb(97, 97, 97);
         cursor: pointer;
     }
 
-    .facebook:hover{
+    .facebook:hover {
         color: #4267B2;
     }
-    .whatsap:hover{
+
+    .whatsap:hover {
         color: #25D366;
     }
 }
-.footer-body-info-right{
+
+.footer-body-info-right {
     padding: 20px 0px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 15px;
     align-items: flex-start;
+
+    .links {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        font-size: 16px;
+        color: #535252;
+        padding-left: 4px;
+    }
+
+    p {
+        font-size: 20px;
+        font-weight: 500;
+        color: #535252;
+    }
 }
-.footer-tail {}
+
+
+.footer-tail {
+    height: 40px;
+    background-color: #d2d2d2;
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+    padding-left: 180px;
+
+    p {
+        font-size: 18px;
+        color: #3d3e3e;
+    }
+}
 
 .footer-header-left {
     height: 100%;
@@ -170,9 +201,70 @@
         width: 300px;
     }
 
-    .footer-body{
+    .footer-body {
         /* gap: 100px; */
         padding: 60px 150px;
+    }
+}
+
+.small-footer {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+
+    
+}
+
+.small-footer-header {
+    display: flex;
+    gap: 20px;
+    height: 70px;
+    background-color: #d2d2d2;
+    justify-content: center;
+    align-items: center;
+
+    .icon {
+        width: 20px;
+        height: 20px;
+        color: rgb(97, 97, 97);
+        cursor: pointer;
+    }
+
+    .facebook {
+        color: #4267B2;
+    }
+
+    .whatsap {
+        color: #25D366;
+    }
+}
+
+.small-footer-body {
+    height: 210px;
+    background-color: #2d2d2d;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    padding-top: 20px;
+    .small-footer-logo {
+        width: 150px;
+        height: 80px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    .question{
+        color: white;
+        font-weight: 200;
+    }
+    .phone-number{
+        color: white;
+        font-weight: 300;
+        font-size: 16px;
     }
 }
 
@@ -184,10 +276,20 @@
     .signup-bar input {
         width: 200px;
     }
-    .footer-body{
+
+    .footer-body {
         /* gap: 20px; */
         padding: 60px 100px;
 
     }
 }
 
+@media (max-width: 750px) {
+    .footer {
+        display: none;
+    }
+
+    .small-footer {
+        display: flex;
+    }
+}

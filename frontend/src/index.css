@@ -46,6 +46,16 @@ input:focus {
   outline: none;
 }
 
+a {
+  text-decoration: none;
+
+}
+
+a:active,
+a:visited {
+  color: inherit;
+}
+
 
 @media (min-width:1200px) {
   .overlay-show {

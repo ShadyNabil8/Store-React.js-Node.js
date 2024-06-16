@@ -22,7 +22,7 @@ const Login = () => {
           <button>Login</button>
           <p>Lost your password?</p>
         </div>
-        <div class="divider"></div>
+        <div className="divider"></div>
         <div className="register">
           <div className='box-label'>
             <h2>Register</h2>
