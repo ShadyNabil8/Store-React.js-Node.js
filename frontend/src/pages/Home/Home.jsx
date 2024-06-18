@@ -3,6 +3,7 @@ import SideBar from '../../components/SideBar/SideBar'
 import ItemsList from '../../components/ItemsList/ItemsList'
 import './Home.css'
 const Home = ({ slidingSidebar, selectedCategory, setSelectedCategory }) => {
+  console.log('home reload');
   return (
     <>
       <div className='home'>

@@ -21,11 +21,11 @@ const NavBar = () => {
                         <CiDeliveryTruck />
                         <p>Track Your Order</p>
                     </div>
-                    <div className='icon'>
+                    <Link to='/cart' className='icon'>
                         <HiOutlineShoppingBag />
                         <p>Shop</p>
 
-                    </div>
+                    </Link>
                     <Link className='icon' to='/login'>
                         <GoPerson />
                         <p>My Account</p>

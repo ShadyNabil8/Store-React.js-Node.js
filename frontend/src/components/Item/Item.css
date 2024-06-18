@@ -1,21 +1,16 @@
-#item {}
 
 .grid-item {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
     border-right: 1px solid #ddd;
-    padding: 20px;
-    padding-top: 30px;
+    padding: 30px 20px;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: fade 0.5s;
 }
 
 .grid-item:hover {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    transform: scale(1.05);
 }
 
 .grid-item:hover .cart-icon {

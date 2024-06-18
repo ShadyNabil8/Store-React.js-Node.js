@@ -6,6 +6,7 @@ import SideBar from './components/SideBar/SideBar'
 import Footer from './components/Footer/Footer'
 import Home from './pages/Home/Home'
 import Login from './pages/Login/Login'
+import Cart from './pages/Cart/Cart'
 
 const App = () => {
   const [slidingSidebar, setSlidingSidebar] = useState(false);
@@ -38,6 +39,7 @@ const App = () => {
             setSelectedCategory={setSelectedCategory}>
           </Home>} />
           <Route path='/login' element={<Login/>} />
+          <Route path='/cart' element={<Cart/>} />
         </Routes>
 
         <Footer />
