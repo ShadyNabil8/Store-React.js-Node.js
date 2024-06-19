@@ -1,10 +1,12 @@
 import express from 'express';
-import { add_component } from '../controllers/componentController.js'
+import componentController from '../controllers/componentController.js'
 import upload from '../config/storage.js';
 
 const router = express.Router()
 
 
-router.post('/add', upload.single('image'), add_component)
+router.post('/add', upload.single('image'), componentController.component_add)
+router.get('/list', componentController.component_list)
+router.post('/delete', componentController.component_delete)
 
 export default router 

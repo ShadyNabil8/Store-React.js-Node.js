@@ -9,8 +9,8 @@ const app = express()
 const port = 5000
 
 // MIDDLEWARE
-app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 app.use(cors())
 
 // ROUTES
@@ -22,7 +22,11 @@ connectDB()
 
 
 app.use((err,req,res,next) => {
-    res.status(500).json({err})
+    res.status(err.status || 500).json({
+        success: false,
+        message: err.message || 'Internal Server Error',
+        error: process.env.NODE_ENV === 'development' ? err : {}
+    });
 });
 
 // LISTEN
