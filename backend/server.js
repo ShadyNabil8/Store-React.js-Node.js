@@ -15,7 +15,7 @@ app.use(cors())
 
 // ROUTES
 app.use('/component', componentRouter)
-
+app.use('/images',express.static('uploads'))
 connectDB()
 
 // ROUTES

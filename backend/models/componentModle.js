@@ -13,12 +13,8 @@ const ComponentScheme = new mongoose.Schema({
         type: String,
         require: true
     },
-    MajorCategory: {
-        type: String,
-        require: true
-    },
-    MinorCategory: {
-        type: String,
+    category: {
+        type: [String],
         require: true
     }
 })
