@@ -29,7 +29,7 @@ const Sidebar = ({ setSelectedCategory,slidingSidebar,sidebarPosition }) => {
             return (
               <SidebarItem key={index} name={category.name} setSelectedCategory={setSelectedCategory}>
                 {
-                  (category.subCategories != null) && category.subCategories.map((subCategory, index) => <div key={index} name className="sidebar-subitem" onClick={() => {
+                  (category.subCategories != null) && category.subCategories.map((subCategory, index) => <div key={index}  className="sidebar-subitem" onClick={() => {
                     setSelectedCategory(subCategory)
                   }}>
                     {subCategory}

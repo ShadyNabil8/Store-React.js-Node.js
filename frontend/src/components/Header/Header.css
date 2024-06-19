@@ -84,12 +84,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    .dot {
+        padding: 4px;
+        color: white;
+        font-size: 12px;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background-color: #209693;
+        position: relative;
+        right: 15px;
+        top: 15px;
+        text-align: center;
+        vertical-align: middle;
+        }
 }
 
 .bag-icon {
     height: 30px;
     width: 30px;
     color: #363636;
+
 }
 
 .cart-items p {

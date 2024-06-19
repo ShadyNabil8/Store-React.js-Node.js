@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     const [menu, setMenu] = useState('menu')
+    console.log('NAVBAR RERENDER');
     return (
         <>
             <div className='navbar'>

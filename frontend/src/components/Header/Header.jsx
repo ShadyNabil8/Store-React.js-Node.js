@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Header.css'
 import { assets, items_list } from '../../assets/assets'
 import { CiSearch } from "react-icons/ci";
@@ -6,14 +6,21 @@ import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { PiListBold } from "react-icons/pi";
 import { GoPerson } from "react-icons/go";
 import { Link } from 'react-router-dom';
+import { itemsContext } from '../../Contexts/StoreContext'
 
 const Header = ({ setSlidingSidebar, slidingSidebar }) => {
+  const { cartItems, items_list } = useContext(itemsContext);
+
   return (
     <>
       <div className='header'>
         <div className="cart-items">
           <HiOutlineShoppingBag className='bag-icon' />
-          <p>EGP 950.00</p>
+          <div className="dot">
+            {Object.keys(cartItems).length}
+          </div>
+          <p>EGP 950
+          </p>
         </div>
         <div className="logo">
           <Link to='/'><img src={assets.logo}></img></Link>
