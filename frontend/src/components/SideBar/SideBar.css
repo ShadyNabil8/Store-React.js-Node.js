@@ -22,34 +22,28 @@
   transition: left 0.3s;
   background-color: white;
 }
-.sidebar-item {
-  margin-bottom: 10px;
-}
+
 
 .sidebar-title {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   cursor: pointer;
   padding: 10px;
-  background-color: #fff;
+  gap: 10px;
   border-bottom: 1px solid #ddd;
-  border-radius: 4px;
   font-size: 14px;
 }
 
-.sidebar-content {
-  margin-top: 5px;
-  padding-left: 15px;
+.sidebar-children {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 40px;
   font-size: 14px;
 }
 
-.sidebar-subitem {
-  padding: 5px 10px;
+.sidebar-child {
   cursor: pointer;
-  background-color: white;
-  border-radius: 4px;
-  margin-top: 5px;
   cursor: pointer;
 }
 

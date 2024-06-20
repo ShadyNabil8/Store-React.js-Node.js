@@ -1,39 +1,49 @@
-// Sidebar.js
 import React, { useState } from 'react';
 import { FaAngleDown, FaAngleRight } from 'react-icons/fa';
 import { sidebarData } from './SidebarData'
 import './SideBar.css';
-const SidebarItem = ({ name, children, setSelectedCategory }) => {
+const SidebarItem = ({ name, children, setSelectedCategory, hasChildren }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <div className="sidebar-item">
-      <div className="sidebar-title" onClick={() => {
-        setIsOpen(!isOpen);
-        setSelectedCategory(name)
-      }}>
-        <span>{name}</span>
-        <span>{isOpen ? <FaAngleDown /> : <FaAngleRight />}</span>
+      <div className="sidebar-title">
+        <span onClick={() => {
+          setIsOpen(!isOpen);
+        }}>
+          {(hasChildren && isOpen)
+            ? <FaAngleDown />
+            : (hasChildren) && <FaAngleRight />
+          }
+        </span>
+        <span onClick={() => {
+          setSelectedCategory(name)
+        }}>
+          {name}
+        </span>
       </div>
-      {isOpen && <div className="sidebar-content">{children}</div>}
+      {(hasChildren && isOpen) && <div className="sidebar-children">{children}</div>}
     </div>
   );
 };
 
-const Sidebar = ({ setSelectedCategory,slidingSidebar,sidebarPosition }) => {
+const Sidebar = ({ setSelectedCategory, slidingSidebar, sidebarPosition }) => {
   return (
     <>
       <div className={(sidebarPosition === 'normal') ? 'sidebar' : ((slidingSidebar) ? 'sliding-sidebar sliding-sidebar-show' : 'sliding-sidebar')}>
         {
           sidebarData.map((category, index) => {
             return (
-              <SidebarItem key={index} name={category.name} setSelectedCategory={setSelectedCategory}>
+              <SidebarItem key={index} name={category.name} setSelectedCategory={setSelectedCategory} hasChildren={category.subCategories != null}>
                 {
-                  (category.subCategories != null) && category.subCategories.map((subCategory, index) => <div key={index}  className="sidebar-subitem" onClick={() => {
-                    setSelectedCategory(subCategory)
-                  }}>
-                    {subCategory}
-                  </div>
+                  (category.subCategories != null) && category.subCategories.map((subCategory, index) => {
+                    return (
+                      <div key={index} className="sidebar-child" onClick={() => {
+                        setSelectedCategory(subCategory)
+                      }}>
+                        {subCategory}
+                      </div>
+                    )
+                  }
                   )
                 }
               </SidebarItem>
