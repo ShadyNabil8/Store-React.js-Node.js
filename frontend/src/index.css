@@ -45,7 +45,9 @@
 input:focus {
   outline: none;
 }
-
+select:focus {
+  outline: none;
+}
 a {
   text-decoration: none;
 
@@ -55,6 +57,17 @@ a:active,
 a:visited {
   color: inherit;
 }
+
+
+button {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #31363F;
+}
+
 
 
 @media (min-width:1200px) {

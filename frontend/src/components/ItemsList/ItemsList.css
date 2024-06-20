@@ -53,10 +53,6 @@
     border: none;
 }
 
-.display-control select:focus {
-    outline: none;
-}
-
 .items-list-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));

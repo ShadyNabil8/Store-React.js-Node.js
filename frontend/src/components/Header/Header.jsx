@@ -14,14 +14,18 @@ const Header = ({ setSlidingSidebar, slidingSidebar }) => {
   return (
     <>
       <div className='header'>
-        <div className="cart-items">
+        <Link to='/cart' className="cart-items">
           <HiOutlineShoppingBag className='bag-icon' />
-          <div className="dot">
-            {Object.keys(cartItems).length}
-          </div>
+          {
+            (Object.keys(cartItems).length !== 0) && (
+              <div className="dot">
+                {Object.keys(cartItems).length}
+              </div>
+            )
+          }
           <p>EGP 950
           </p>
-        </div>
+        </Link>
         <div className="logo">
           <Link to='/'><img src={assets.logo}></img></Link>
           <p>Electronics Store</p>
@@ -47,14 +51,24 @@ const Header = ({ setSlidingSidebar, slidingSidebar }) => {
         <div className='border-div'></div>
         <div className="left-header">
           <PiListBold className='list-icon' onClick={() => { setSlidingSidebar(!slidingSidebar) }} />
-          <div className="small-logo">
+          <Link to='/' className="small-logo">
             <img src={assets.logo}></img>
-          </div>
+          </Link>
         </div>
         <div className="right-header">
           <CiSearch className='right-icon' />
           <GoPerson className='right-icon' />
-          <HiOutlineShoppingBag className='right-icon' />
+          <Link to='/cart' className="cart-items">
+            <HiOutlineShoppingBag className='right-icon' />
+            {
+              (Object.keys(cartItems).length !== 0) && (
+                <div className="dot">
+                  {Object.keys(cartItems).length}
+                </div>
+              )
+            }
+
+          </Link>
         </div>
       </div>
     </>
