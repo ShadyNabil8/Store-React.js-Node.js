@@ -7,19 +7,19 @@ const SidebarItem = ({ name, children, setSelectedCategory, hasChildren }) => {
   return (
     <div className="sidebar-item">
       <div className="sidebar-title">
-        <span onClick={() => {
+        <div className="sidebar-icon" onClick={() => {
           setIsOpen(!isOpen);
         }}>
           {(hasChildren && isOpen)
             ? <FaAngleDown />
             : (hasChildren) && <FaAngleRight />
           }
-        </span>
-        <span onClick={() => {
+        </div>
+        <div className='sidebar-name' onClick={() => {
           setSelectedCategory(name)
         }}>
           {name}
-        </span>
+        </div>
       </div>
       {(hasChildren && isOpen) && <div className="sidebar-children">{children}</div>}
     </div>

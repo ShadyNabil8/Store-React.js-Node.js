@@ -10,12 +10,13 @@ import { itemsContext } from '../../Contexts/StoreContext'
 
 const Header = ({ setSlidingSidebar, slidingSidebar }) => {
   const { cartItems, items_list } = useContext(itemsContext);
-
   return (
     <>
       <div className='header'>
         <Link to='/cart' className="cart-items">
-          <HiOutlineShoppingBag className='bag-icon' />
+          <div>
+            <HiOutlineShoppingBag className='bag-icon' />
+          </div>
           {
             (Object.keys(cartItems).length !== 0) && (
               <div className="dot">
@@ -23,12 +24,10 @@ const Header = ({ setSlidingSidebar, slidingSidebar }) => {
               </div>
             )
           }
-          <p>EGP 950
-          </p>
+          <p>EGP 950</p>
         </Link>
         <div className="logo">
           <Link to='/'><img src={assets.logo}></img></Link>
-          <p>Electronics Store</p>
         </div>
         <div className="search-bar">
           <input placeholder='Search for product'></input>

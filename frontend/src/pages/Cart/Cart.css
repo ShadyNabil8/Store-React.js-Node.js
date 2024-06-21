@@ -152,8 +152,8 @@
                 border: 0px;
                 background-color: rgb(62, 65, 68);
                 color: white;
-                border-top-right-radius: 50px;
-                border-bottom-right-radius: 50px;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
                 padding: 0px 20px;
                 transition: background-color 0.3s;
             }
@@ -172,7 +172,7 @@
             button {
                 border: 0px;
                 background-color: #209693;
-                border-radius: 50px;
+                border-radius: 10px;
                 padding: 0px 30px;
                 color: white;
                 font-size: 16px;

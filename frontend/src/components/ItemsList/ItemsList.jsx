@@ -10,7 +10,6 @@ import { BsFillGrid3X3GapFill } from "react-icons/bs";
 const ItemsList = ({ selectedCategory }) => {
     const [display, setDisplay] = useState('grid');
     const { items_list } = useContext(itemsContext)
-    console.log('reload');
     return (
         <div className='items-view'>
             <div className='display-control'>
