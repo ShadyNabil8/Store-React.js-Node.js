@@ -123,19 +123,43 @@
 
 }
 
+.header.visible {
+    display: none;
+}
 
+.small-header.visible {
+    transform: translateY(0);
+
+    .border-div {
+        display: none;
+    }
+}
 
 .small-header {
-    display: none;
-    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     padding: 35px;
     background-color: rgb(255, 255, 255);
-    position: sticky;
-    top: 0px;
     z-index: 2;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-100%);
+
+    .left-right-header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
 
     .border-div {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
         width: 100%;
         height: 10px;
         background-color: #209693;
@@ -207,10 +231,7 @@
     }
 
     .small-header {
-        display: flex;
+        transform: translateY(0);
     }
 
-    .border-div {
-        display: none;
-    }
 }

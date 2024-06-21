@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Header.css'
 import { assets, items_list } from '../../assets/assets'
 import { CiSearch } from "react-icons/ci";
@@ -10,9 +10,28 @@ import { itemsContext } from '../../Contexts/StoreContext'
 
 const Header = ({ setSlidingSidebar, slidingSidebar }) => {
   const { cartItems, items_list } = useContext(itemsContext);
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      <div className='header'>
+      <div className={`header ${isSticky ? 'invisible' : ''}`}>
         <Link to='/cart' className="cart-items">
           <div>
             <HiOutlineShoppingBag className='bag-icon' />
@@ -46,28 +65,30 @@ const Header = ({ setSlidingSidebar, slidingSidebar }) => {
           </button>
         </div>
       </div>
-      <div className='small-header'>
+      <div className={`small-header ${isSticky ? 'visible' : ''}`}>
         <div className='border-div'></div>
-        <div className="left-header">
-          <PiListBold className='list-icon' onClick={() => { setSlidingSidebar(!slidingSidebar) }} />
-          <Link to='/' className="small-logo">
-            <img src={assets.logo}></img>
-          </Link>
-        </div>
-        <div className="right-header">
-          <CiSearch className='right-icon' />
-          <GoPerson className='right-icon' />
-          <Link to='/cart' className="cart-items">
-            <HiOutlineShoppingBag className='right-icon' />
-            {
-              (Object.keys(cartItems).length !== 0) && (
-                <div className="dot">
-                  {Object.keys(cartItems).length}
-                </div>
-              )
-            }
+        <div className="left-right-header">
+          <div className="left-header">
+            <PiListBold className='list-icon' onClick={() => { setSlidingSidebar(!slidingSidebar) }} />
+            <Link to='/' className="small-logo">
+              <img src={assets.logo}></img>
+            </Link>
+          </div>
+          <div className="right-header">
+            <CiSearch className='right-icon' />
+            <GoPerson className='right-icon' />
+            <Link to='/cart' className="cart-items">
+              <HiOutlineShoppingBag className='right-icon' />
+              {
+                (Object.keys(cartItems).length !== 0) && (
+                  <div className="dot">
+                    {Object.keys(cartItems).length}
+                  </div>
+                )
+              }
 
-          </Link>
+            </Link>
+          </div>
         </div>
       </div>
     </>
