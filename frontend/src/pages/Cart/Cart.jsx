@@ -62,14 +62,12 @@ const Cart = () => {
         }
 
         <div className="checkout-info">
-          <div className="actions">
-            <div className="coupon">
-              <input placeholder='Coupon code' type="text"></input>
-              <button>Apply Coupon</button>
-            </div>
-            <div className="checkout">
-              <button>Process to checkout</button>
-            </div>
+          <div className="coupon">
+            <input placeholder='Coupon code' type="text"></input>
+            <button>Apply Coupon</button>
+          </div>
+          <div className="checkout">
+            <button>Process to checkout</button>
           </div>
           <div className="cart-total">
             <div className="box-title">
