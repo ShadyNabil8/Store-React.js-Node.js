@@ -74,8 +74,24 @@ const Header = ({ setSlidingSidebar, slidingSidebar }) => {
               <img src={assets.logo}></img>
             </Link>
           </div>
+          <div className="cetner-header">
+            <input placeholder='Search for product'></input>
+            <select>
+              <option value="">All Categories</option>
+              {
+                items_list.map((item, index) => {
+                  return (
+                    <option value={item} key={item._id}>{item.category}</option>
+                  )
+                })
+              }
+            </select>
+            <button>
+              <CiSearch className='search-icon' />
+            </button>
+          </div>
           <div className="right-header">
-            <CiSearch className='right-icon' />
+            <CiSearch className='right-icon search' />
             <GoPerson className='right-icon' />
             <Link to='/cart' className="cart-items">
               <HiOutlineShoppingBag className='right-icon' />

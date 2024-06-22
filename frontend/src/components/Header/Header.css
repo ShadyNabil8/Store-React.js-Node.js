@@ -85,6 +85,7 @@
         align-self: center;
         width: fit-content;
         height: fit-content;
+        position: relative;
 
         &:hover {
 
@@ -102,9 +103,9 @@
             width: 20px;
             border-radius: 50%;
             background-color: #209693;
-            position: relative;
-            right: 15px;
-            top: 15px;
+            position: absolute;
+            right: 65px;
+            top: 20px;
             text-align: center;
             vertical-align: middle;
         }
@@ -152,7 +153,68 @@
     .left-right-header {
         width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .cetner-header {
+            height: 40px;
+            display: flex;
+            flex-grow: 1;
+            flex-shrink: 1;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+
+
+            input {
+                height: 100%;
+                flex-grow: 4;
+                flex-shrink: 1;
+                border: #209693 2px solid;
+                border-right: 0px;
+                font-weight: 300;
+                font-size: 16px;
+                color: #3c3b3b;
+                padding: 10px;
+                border-top-left-radius: inherit;
+                border-bottom-left-radius: inherit;
+
+            }
+
+            select {
+                color: #3c3b3b;
+                height: 100%;
+                border: 0px;
+                background-color: white;
+                border: #209693 2px solid;
+                border-right: 0px;
+                border-left: 0px;
+            }
+
+            button {
+                flex-grow: 0.5;
+                height: 100%;
+                border: 0px;
+                background-color: #209693;
+                border-top-right-radius: inherit;
+                border-bottom-right-radius: inherit;
+            }
+
+            button {
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            button:hover {
+                background-color: #31363F;
+            }
+
+            .search-icon {
+                color: white;
+                height: 50%;
+                width: 50%;
+            }
+        }
     }
 
     .border-div {
@@ -166,13 +228,16 @@
     }
 
     .left-header {
+        flex-grow: 1;
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 25px;
         color: #209693;
     }
 
     .left-header .list-icon {
+        visibility: hidden;
         height: 25px;
         width: 25px;
         cursor: pointer;
@@ -180,25 +245,32 @@
 
     .left-header .small-logo img {
         width: 100%;
-        height: 40px;
+        height: 60px;
     }
 
     .right-header {
+        flex-grow: 1;
         display: flex;
+        justify-content: center;
         align-items: center;
         gap: 20px;
         color: #209693;
     }
 
     .right-header .right-icon {
-        height: 25px;
-        width: 25px;
+        height: 30px;
+        width: 30px;
+    }
+
+    .right-icon.search {
+        visibility: hidden;
     }
 
     .cart-items {
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
 
         .dot {
             padding: 3px 0px;
@@ -208,9 +280,9 @@
             width: 20px;
             border-radius: 50%;
             background-color: #209693;
-            position: relative;
-            right: 15px;
-            top: 15px;
+            position: absolute;
+            right: -5px;
+            top: 20px;
             text-align: center;
             vertical-align: middle;
         }
@@ -232,6 +304,40 @@
 
     .small-header {
         transform: translateY(0);
+
+        .left-header {
+            justify-content: flex-start;
+
+            .list-icon {
+                visibility: visible;
+            }
+
+            .small-logo {
+                img {
+                    height: 40px;
+                }
+            }
+        }
+
+        .right-header {
+            justify-content: flex-end;
+
+            .right-icon {
+                height: 25px;
+                width: 25px;
+            }
+
+            .right-icon.search {
+                visibility: visible;
+            }
+        }
+
+
+        .left-right-header {
+            .cetner-header {
+                display: none;
+            }
+        }
     }
 
 }
