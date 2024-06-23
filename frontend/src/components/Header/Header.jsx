@@ -8,10 +8,9 @@ import { GoPerson } from "react-icons/go";
 import { Link } from 'react-router-dom';
 import { itemsContext } from '../../Contexts/StoreContext'
 
-const Header = ({ setSlidingSidebar, slidingSidebar }) => {
+const Header = ({ setSlidingSidebar, slidingSidebar, slidingSearch, setSlidingSearch }) => {
   const { cartItems, items_list } = useContext(itemsContext);
   const [isSticky, setIsSticky] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -31,6 +30,13 @@ const Header = ({ setSlidingSidebar, slidingSidebar }) => {
 
   return (
     <>
+      {
+        (slidingSearch) && <div className='sliding-searchbar'>
+          <input className='searchbar' placeholder='Search product'></input>
+          <CiSearch className='search-icon' />
+        </div>
+      }
+
       <div className={`header ${isSticky ? 'invisible' : ''}`}>
         <Link to='/cart' className="cart-items">
           <div>
@@ -91,7 +97,7 @@ const Header = ({ setSlidingSidebar, slidingSidebar }) => {
             </button>
           </div>
           <div className="right-header">
-            <CiSearch className='right-icon search' />
+            <CiSearch className='right-icon search' onClick={() => setSlidingSearch(true)} />
             <GoPerson className='right-icon' />
             <Link to='/cart' className="cart-items">
               <HiOutlineShoppingBag className='right-icon' />
