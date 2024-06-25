@@ -26,20 +26,28 @@ const component_list = asyncHandler(async (req, res) => {
 });
 
 const component_delete = asyncHandler(async (req, res, next) => {
-    const component = await componentModel.findById(req.body.id)
+    const component = await componentModel.findById(req.body.id);
     if (component) {
-        fs.unlinkSync(`./uploads/${component.image}`)
-        await componentModel.findOneAndDelete(req.body.id);
-    }
-    else {
+        const imagePath = `./uploads/${component.image}`;
+
+        // Check if the image exists before deleting
+        if (fs.existsSync(imagePath)) {
+            fs.unlinkSync(imagePath);
+        } else {
+            console.warn(`Image not found at path: ${imagePath}`);
+        }
+
+        await componentModel.findOneAndDelete({ _id: req.body.id });
+
+        res.status(200).send({
+            success: true,
+            data: component
+        });
+    } else {
         const error = new Error('Component not found');
         error.status = 404; // Not Found
         return next(error);
     }
-    res.status(200).send({
-        success: true,
-        data: component
-    })
 });
 
 export default { component_add, component_list, component_delete }
