@@ -1,0 +1,46 @@
+.sidebar {
+    min-height: 100vh;
+    width: 20%;
+    border-right: 2px solid #ddd;
+    border-top: 0px;
+}
+
+.sidebar-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 50px;
+    padding-left: 20%;
+}
+
+.sidebar-option {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-right: 0px;
+    padding: 10px 20px;
+    border-radius: 3px 0px 0px 3px;
+    cursor: pointer;
+}
+
+.sidebar-option .icon {
+    width: max(25px, 2.5vw);
+    height: 25px;
+    color: #209693;
+}
+.sidebar-option.active{
+    background-color: rgb(239, 239, 239);
+}
+
+.sidebar-option:hover {
+    p {
+        color: #209693;
+    }
+}
+
+@media (max-width: 900px) {
+    .sidebar-option p{
+        display: none;
+    }
+}
