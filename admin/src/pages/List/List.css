@@ -1,0 +1,50 @@
+.list {
+    width: 70%;
+    margin-left: max(25px, 5vw);
+    margin-top: 50px;
+}
+
+.list .main-title {
+    color: grey;
+    font-size: 20px;
+}
+
+.grid-format {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 2fr 1fr 0.5fr;
+    border: 1px #ddd solid;
+    padding: 10px 20px;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.grid-format.header {
+    background-color: #209693;
+    color: white;
+
+}
+
+.list-item img {
+    width: 60px;
+}
+
+.list-item .trash-icon {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+
+    &:hover {
+        color: #d21818;
+    }
+}
+
+@media (max-width: 900px) {
+    .grid-format {
+        grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
+    }
+
+    .grid-format .category {
+        display: none
+    }
+}

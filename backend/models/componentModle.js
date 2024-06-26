@@ -14,8 +14,9 @@ const ComponentScheme = new mongoose.Schema({
         require: true
     },
     category: {
-        type: [String],
-        require: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Category',
+        required: true
     }
 })
 

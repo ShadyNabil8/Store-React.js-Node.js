@@ -3,6 +3,7 @@ import cors from 'cors'
 import {connectDB} from './config/db.js'
 
 import componentRouter from './routes/componentRoute.js'
+import categoryRouter from './routes/categoryRoute.js'
 
 // INITIALIZATION
 const app = express()
@@ -15,6 +16,7 @@ app.use(cors())
 
 // ROUTES
 app.use('/component', componentRouter)
+app.use('/category', categoryRouter)
 app.use('/images',express.static('uploads'))
 connectDB()
 

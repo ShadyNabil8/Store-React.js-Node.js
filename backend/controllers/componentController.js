@@ -1,24 +1,32 @@
 import componentModel from '../models/componentModle.js'
+import categoryModel from '../models/categoryModel.js'
 import asyncHandler from "express-async-handler"
 import fs from 'fs'
 
 
 const component_add = asyncHandler(async (req, res) => {
+    const category = await categoryModel.findOne({ name: req.body.category });
+    if (!category) {
+        const newCategory = new categoryModel({
+            name: req.body.category
+        })
+        await newCategory.save();
+    }
     const component = new componentModel({
         name: req.body.name,
         price: req.body.price,
-        category: req.body.category,
+        category: category._id,
         image: req.file.filename,
     })
     await component.save();
     res.status(201).send({
         success: true,
-        message: "component added successfully"
+        message: "Component added successfully"
     })
 });
 
 const component_list = asyncHandler(async (req, res) => {
-    const component = await componentModel.find({});
+    const component = await componentModel.find({}).populate({ path: 'category', select: 'name -_id' });
     res.status(200).send({
         success: true,
         data: component

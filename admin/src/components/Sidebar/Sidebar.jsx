@@ -11,11 +11,11 @@ const Sidebar = () => {
       <div className="sidebar-options">
         <NavLink to='/add' className="sidebar-option">
           <IoIosAddCircleOutline className='icon'/>
-          <p>List items</p>
+          <p>Add items</p>
         </NavLink>
         <NavLink to='/list' className="sidebar-option">
           <IoIosListBox className='icon' />
-          <p>Add item</p>
+          <p>Items list</p>
         </NavLink>
         <NavLink to='/orders' className="sidebar-option">
           <FaRegCalendarCheck className='icon' />

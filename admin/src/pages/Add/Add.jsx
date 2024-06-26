@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { MdOutlineDriveFolderUpload } from "react-icons/md";
 import './Add.css'
 import axios from 'axios'
@@ -6,11 +6,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Add = () => {
-  const [image, setImage] = useState(false)
+  const [image, setImage] = useState(false);
+  const [categoryList, setCategoryList] = useState([]);
   const [data, setData] = useState({
     name: '',
     description: '',
-    category: 'electronics1',
+    category: 'Arduino & Development Boards',
     price: ''
   })
   const onDataChange = (e) => {
@@ -37,12 +38,12 @@ const Add = () => {
       setData({
         name: '',
         description: '',
-        category: 'electronics1',
+        category: 'Arduino & Development Boards',
         price: ''
       });
       setImage(false);
     } catch (error) {
-      toast.error(respone.data.message);
+      toast.error('Error adding item');
       console.error('Error submitting form:', error);
       if (error.response) {
         // The request was made, and the server responded with a status code outside of the range of 2xx
@@ -55,6 +56,28 @@ const Add = () => {
       }
     }
   };
+
+  const featchCategoryList = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/category/list')
+      setCategoryList(response.data.data)
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      if (error.response) {
+        // The request was made, and the server responded with a status code outside of the range of 2xx
+        console.error('Server responded with:', error.response.data);
+      } else if (error.request) {
+        // The request was made, but no response was received
+        console.error('No response received:', error.request);
+      } else {
+        console.error('Error setting up request:', error.message);
+      }
+    }
+  }
+
+  useEffect(() => {
+    featchCategoryList()
+  }, [])
 
 
   return (
@@ -84,10 +107,19 @@ const Add = () => {
           <div className="add-category flex-column">
             <p>Category</p>
             <select name="category" id="category" className='field' onChange={onDataChange}>
-              <option value="electronics1">electronics1</option>
-              <option value="electronics2">electronics2</option>
-              <option value="electronics3">electronics3</option>
-              <option value="electronics4">electronics4</option>
+              {/*<option value="Arduino & Development Boards">Arduino & Development Boards</option>
+              <option value="Components">Components</option>
+              <option value="LCD Modules">LCD Modules</option>
+              <option value="Raspberry Pi & Accessories">Raspberry Pi & Accessories</option>
+              <option value="Integrated circuits (IC)">Integrated circuits (IC)</option>
+          <option value="Motors & Drives">Motors & Drives</option>*/}
+              {
+                categoryList.map((item, index) => {
+                  return (
+                    <option value={item.name} key={index}>{item.name}</option>
+                  )
+                })
+              }
             </select>
           </div>
           <div className="add-price flex-column">
@@ -95,7 +127,7 @@ const Add = () => {
             <input type="number" min='0' name='price' required placeholder='EGP 100' className='field' onChange={onDataChange} value={data.price} />
           </div>
         </div>
-        <button type='submit' className='add-button'>Add</button>
+        <button type='submit' className='add-button button'>Add</button>
       </form>
     </div>
   )
