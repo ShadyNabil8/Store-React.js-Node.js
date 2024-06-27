@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { MdOutlineDriveFolderUpload } from "react-icons/md";
 import './Add.css'
 import axios from 'axios'
@@ -8,10 +8,11 @@ import 'react-toastify/dist/ReactToastify.css';
 const Add = () => {
   const [image, setImage] = useState(false);
   const [categoryList, setCategoryList] = useState([]);
+  const [newCategory, setNewcategory] = useState(false);
   const [data, setData] = useState({
     name: '',
     description: '',
-    category: 'Arduino & Development Boards',
+    category: ['Arduino & Development Boards'],
     price: ''
   })
   const onDataChange = (e) => {
@@ -29,16 +30,18 @@ const Add = () => {
     formData.append('image', image);
     formData.append('name', data.name);
     formData.append('description', data.description);
-    formData.append('category', data.category);
+    ['Arduino & Development Boards', 'shadynabil'].forEach(category => {
+      formData.append('category', category);
+    });
     formData.append('price', data.price);
-
+    console.log(formData);
     try {
       const respone = await axios.post('http://localhost:5000/component/add', formData);
       toast.success(respone.data.message);
       setData({
         name: '',
         description: '',
-        category: 'Arduino & Development Boards',
+        category: ['Arduino & Development Boards'],
         price: ''
       });
       setImage(false);
@@ -106,13 +109,10 @@ const Add = () => {
         <div className="add-category-price">
           <div className="add-category flex-column">
             <p>Category</p>
+            {
+
+            }
             <select name="category" id="category" className='field' onChange={onDataChange}>
-              {/*<option value="Arduino & Development Boards">Arduino & Development Boards</option>
-              <option value="Components">Components</option>
-              <option value="LCD Modules">LCD Modules</option>
-              <option value="Raspberry Pi & Accessories">Raspberry Pi & Accessories</option>
-              <option value="Integrated circuits (IC)">Integrated circuits (IC)</option>
-          <option value="Motors & Drives">Motors & Drives</option>*/}
               {
                 categoryList.map((item, index) => {
                   return (

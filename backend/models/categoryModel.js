@@ -5,7 +5,8 @@ const CategoryScheme = new mongoose.Schema({
         type: String,
         required: true,
         unique: true
-    }
+    },
+    sub: [{ type: String }]
 })
 
 export default mongoose.models.Category || mongoose.model('Category', CategoryScheme)

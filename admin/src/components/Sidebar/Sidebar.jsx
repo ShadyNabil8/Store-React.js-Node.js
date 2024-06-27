@@ -1,6 +1,7 @@
 import React from 'react'
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { IoIosListBox } from "react-icons/io";
+import { VscTypeHierarchySub } from "react-icons/vsc";
 import { FaRegCalendarCheck } from "react-icons/fa";
 
 import './Sidebar.css'
@@ -12,6 +13,10 @@ const Sidebar = () => {
         <NavLink to='/add' className="sidebar-option">
           <IoIosAddCircleOutline className='icon'/>
           <p>Add items</p>
+        </NavLink>
+        <NavLink to='/addcategory' className="sidebar-option">
+          <VscTypeHierarchySub className='icon'/>
+          <p>Add Category</p>
         </NavLink>
         <NavLink to='/list' className="sidebar-option">
           <IoIosListBox className='icon' />
