@@ -16,6 +16,7 @@ const component_add = asyncHandler(async (req, res) => {
         name: req.body.name,
         price: req.body.price,
         category: category._id,
+        subCategory: subCategory._id,
         image: req.file.filename,
     })
     await component.save();

@@ -4,6 +4,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './AddCategory.css'
 import axios from 'axios'
+import { ImCross } from "react-icons/im";
+
 
 const AddCategory = () => {
     const [currentSubCategory, setCurSubCategory] = useState('')
@@ -38,7 +40,13 @@ const AddCategory = () => {
             setCurSubCategory('')
         }
     }
-
+    const handleDeleteSubCategory = (index) => {
+        console.log(index);
+        setCategory((prevData) => ({
+            name: prevData.name,
+            subCategory: prevData.subCategory.filter((_, i) => i !== index)
+        }));
+    }
     const onSubmit = async (e) => {
         if (category.name !== '') {
             const formData = {
@@ -91,6 +99,7 @@ const AddCategory = () => {
                                 <div className="sub-category" key={index}>
                                     <MdPlayArrow className='icon' />
                                     <input className="field" name='subCategory' onChange={(e) => { onSubCategoryChange(index, e.target.value) }} value={subCategory}></input>
+                                    <ImCross className='cross-icon' onClick={() => handleDeleteSubCategory(index)} />
                                 </div>
                             )
                         })

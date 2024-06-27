@@ -22,12 +22,18 @@
 
 .add-category-price {
     display: flex;
-    gap: 30px
+    flex-direction: column;
+    gap: 10px
+}
+
+.category-sub {
+    display: flex;
+    gap: 5px;
 }
 
 .add-category select,
 .add-price input {
-    max-width: 120px;
+    width: 200px;
 }
 
 .add-button {
@@ -45,4 +51,10 @@
     background-color: white;
     border: #ddd 2px solid;
     padding: 10px;
+}
+
+@media (max-width:900px) {
+    .category-sub {
+        flex-direction: column;
+    }
 }

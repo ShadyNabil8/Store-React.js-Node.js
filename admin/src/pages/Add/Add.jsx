@@ -8,19 +8,37 @@ import 'react-toastify/dist/ReactToastify.css';
 const Add = () => {
   const [image, setImage] = useState(false);
   const [categoryList, setCategoryList] = useState([]);
+  const [subCategoryList, setSubCategoryList] = useState([]);
   const [newCategory, setNewcategory] = useState(false);
   const [data, setData] = useState({
     name: '',
     description: '',
-    category: ['Arduino & Development Boards'],
+    category: '',
+    subCategory: '',
     price: ''
   })
   const onDataChange = (e) => {
     const { name, value } = e.target
-    setData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setData((prevData) => {
+      if (name == 'category') {
+        return {
+          ...prevData,
+          category: value,
+          subCategory: ''
+        }
+      }
+      else {
+        return {
+          ...prevData,
+          [name]: value,
+        }
+      }
+    });
+
+    if (name === 'category') {
+      getSubCategory(value)
+    }
+
   }
 
   const onSubmit = async (e) => {
@@ -78,6 +96,31 @@ const Add = () => {
     }
   }
 
+  const getSubCategory = (id) => {
+    const selectedCategory = categoryList.find(c => c._id === id);
+
+    if (!selectedCategory) {
+      console.error('Category not found');
+      return [];
+    }
+
+    if (selectedCategory.sub.length > 0) {
+      const subList = selectedCategory.sub.map(subId => {
+        const subCategory = categoryList.find(c => c._id === subId);
+        if (!subCategory) {
+          console.error(`Subcategory with id ${subId} not found`);
+        }
+        return subCategory;
+      }).filter(sub => sub !== undefined); // Filter out undefined subcategories
+
+      setSubCategoryList(subList);
+    } else {
+      console.log('No subcategories found');
+      setSubCategoryList([]);
+    }
+  }
+
+  console.log(data);
   useEffect(() => {
     featchCategoryList()
   }, [])
@@ -109,18 +152,30 @@ const Add = () => {
         <div className="add-category-price">
           <div className="add-category flex-column">
             <p>Category</p>
-            {
-
-            }
-            <select name="category" id="category" className='field' onChange={onDataChange}>
+            <div className="category-sub">
+              <select name="category" id="category" className='field' onChange={onDataChange}>
+                <option value={'Empty'} >Chose Category</option>
+                {
+                  categoryList.map((item, index) => {
+                    return (
+                      <option value={item._id} key={index}>{item.name}</option>
+                    )
+                  })
+                }
+              </select>
               {
-                categoryList.map((item, index) => {
-                  return (
-                    <option value={item.name} key={index}>{item.name}</option>
-                  )
-                })
+                (subCategoryList.length > 0) && <select name="subCategory" id="subCategory" className='field' onChange={onDataChange}>
+                  <option value={'Empty'} >Chose SubCategory</option>
+                  {
+                    subCategoryList.map((item, index) => {
+                      return (
+                        <option value={item._id} key={index}>{item.name}</option>
+                      )
+                    })
+                  }
+                </select>
               }
-            </select>
+            </div>
           </div>
           <div className="add-price flex-column">
             <p>Price</p>

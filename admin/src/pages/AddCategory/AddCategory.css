@@ -10,20 +10,20 @@
 .category,
 .sub-categories {
     max-width: max(30%, 250px);
-    box-sizing: border-box;
 }
 
 .sub-category,
 .current-category {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 15px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .sub-category input,
 .current-category input {
-    flex: 1;
+    flex:1;
 }
 
 .sub-category .icon,
@@ -31,4 +31,15 @@
     min-width: 15px;
     min-height: 15px;
     color: #209693;
+}
+
+.sub-category .cross-icon {
+    min-width: 15px;
+    min-height: 15px;
+    color: #209693;
+    transition: color 0.3s ease-in-out;
+    cursor: pointer;
+}
+.sub-category .cross-icon:hover {
+    color: #ea3d3d;
 }

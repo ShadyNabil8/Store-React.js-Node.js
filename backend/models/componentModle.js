@@ -17,7 +17,12 @@ const ComponentScheme = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category',
         required: true
-    }
+    },
+    subCategory: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Category',
+        required: true
+    },
 })
 
 export default mongoose.models.Component || mongoose.model('Component', ComponentScheme)
