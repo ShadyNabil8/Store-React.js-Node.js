@@ -5,6 +5,10 @@ const ComponentScheme = new mongoose.Schema({
         type: String,
         required: true
     },
+    description: {
+        type: String,
+        required: false
+    },
     price: {
         type: Number,
         require: true
@@ -21,7 +25,7 @@ const ComponentScheme = new mongoose.Schema({
     subCategory: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category',
-        required: true
+        required: false
     },
 })
 

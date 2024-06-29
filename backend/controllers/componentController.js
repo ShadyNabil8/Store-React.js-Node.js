@@ -5,21 +5,19 @@ import fs from 'fs'
 
 
 const component_add = asyncHandler(async (req, res) => {
-    const category = await categoryModel.findOne({ name: req.body.category });
-    if (!category) {
-        const newCategory = new categoryModel({
-            name: req.body.category
-        })
-        await newCategory.save();
-    }
+    // console.log(req.body);
     const component = new componentModel({
         name: req.body.name,
+        description: req.body.description,
         price: req.body.price,
-        category: category._id,
-        subCategory: subCategory._id,
+        category: req.body.category,
+        subCategory: req.body.subCategory,
         image: req.file.filename,
     })
     await component.save();
+    const subCategoriesId = [req.body.category]
+    if (req.body.subCategory) subCategoriesId.push(req.body.subCategory)
+    await categoryModel.updateMany({ _id: { $in: subCategoriesId } }, { $inc: { count: 1 } });
     res.status(201).send({
         success: true,
         message: "Component added successfully"
@@ -27,7 +25,7 @@ const component_add = asyncHandler(async (req, res) => {
 });
 
 const component_list = asyncHandler(async (req, res) => {
-    const component = await componentModel.find({}).populate({ path: 'category', select: 'name -_id' });
+    const component = await componentModel.find({}).populate([{ path: 'category', select: 'name -_id' }, { path: 'subCategory', select: 'name -_id' }]);
     res.status(200).send({
         success: true,
         data: component
@@ -48,6 +46,10 @@ const component_delete = asyncHandler(async (req, res, next) => {
 
         await componentModel.findOneAndDelete({ _id: req.body.id });
 
+        const subCategoriesId = [component.category]
+        if (component.subCategory) subCategoriesId.push(component.subCategory)
+        await categoryModel.updateMany({ _id: { $in: subCategoriesId } }, { $inc: { count: -1 } });
+        
         res.status(200).send({
             success: true,
             data: component
