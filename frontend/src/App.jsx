@@ -10,7 +10,7 @@ import Cart from './pages/Cart/Cart'
 
 const App = () => {
   const [slidingSidebar, setSlidingSidebar] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState('all')
+  const [selectedCategory, setSelectedCategory] = useState({ name: 'Development Boards', type: 'category' })
   const [slidingSearch, setSlidingSearch] = useState(false);
 
   return (

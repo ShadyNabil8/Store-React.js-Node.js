@@ -1,28 +1,47 @@
-import React, { useState } from 'react'
-import { useContext } from 'react'
-import { itemsContext } from '../../Contexts/StoreContext'
+import React, { useState, useEffect } from 'react'
 import Item from '../Item/Item'
 import './ItemsList.css'
 import { FaListUl } from "react-icons/fa6";
 import { BsFillGrid3X3GapFill } from "react-icons/bs";
-
+import axios from 'axios'
 
 const ItemsList = ({ selectedCategory }) => {
+    const [items, setItems] = useState([])
+    console.log('ITEMLIST RERNDER');
     const [display, setDisplay] = useState('grid');
-    const { items_list } = useContext(itemsContext)
+    const featchItemList = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/component/find', { params: { ...selectedCategory } })
+            setItems(response.data.data)
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            if (error.response) {
+                // The request was made, and the server responded with a status code outside of the range of 2xx
+                console.error('Server responded with:', error.response.data);
+            } else if (error.request) {
+                // The request was made, but no response was received
+                console.error('No response received:', error.request);
+            } else {
+                console.error('Error setting up request:', error.message);
+            }
+        }
+    }
+    useEffect(() => {
+        featchItemList()
+    },[selectedCategory])
     return (
         <div className='items-view'>
             <div className='display-control'>
                 <div className='display-icons'>
-                    <BsFillGrid3X3GapFill 
-                            className='grid-icon' 
-                            onClick={() => { setDisplay('grid') }} 
-                            style={(display==='grid')?{opacity:1}:{opacity:0.5}}
+                    <BsFillGrid3X3GapFill
+                        className='grid-icon'
+                        onClick={() => { setDisplay('grid') }}
+                        style={(display === 'grid') ? { opacity: 1 } : { opacity: 0.5 }}
                     />
-                    <FaListUl 
-                            className='list-icon' 
-                            onClick={() => { setDisplay('flex') }} 
-                            style={(display==='flex')?{opacity:1}:{opacity:0.5}}
+                    <FaListUl
+                        className='list-icon'
+                        onClick={() => { setDisplay('flex') }}
+                        style={(display === 'flex') ? { opacity: 1 } : { opacity: 0.5 }}
                     />
                 </div>
                 <div className='filters'>
@@ -43,14 +62,12 @@ const ItemsList = ({ selectedCategory }) => {
             </div>
             <div className={display === 'flex' ? 'items-list-flex' : 'items-list-grid'}>
                 {
-                    items_list.map((item, index) => {
-                        if (selectedCategory === 'all' || selectedCategory === item.category) {
-                            return (
-                                <Item key={index} id={item._id} name={item.name} price={item.price} image={item.image} display={display}>
+                    items.map((item, index) => {
+                        return (
+                            <Item key={index} category={item.category} subCategory={item.subCategory} id={item._id} name={item.name} price={item.price} image={item.image} description={item.description} inStock={item.inStock} display={display}>
 
-                                </Item>
-                            )
-                        }
+                            </Item>
+                        )
                     })
                 }
             </div>

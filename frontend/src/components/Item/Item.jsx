@@ -29,7 +29,7 @@ const Item = ({ id, name, image, price, category, display }) => {
                                 <p id='name'>{name}</p>
                             </div>
                             <div className="item-image">
-                                <img src={image}></img>
+                                <img src={`http://localhost:5000/images/${image}`}></img>
                             </div>
                         </>
                     )

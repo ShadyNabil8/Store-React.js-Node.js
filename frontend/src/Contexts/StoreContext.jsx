@@ -7,7 +7,7 @@ import { items_list } from '../assets/assets'
 export const itemsContext = createContext(null);
 
 const StoreContext = ({ children }) => {
-    console.log('cpntect rerender');
+
     const [cartItems, setCartItems] = useState({})
 
     const removeFromCart = (id) => {

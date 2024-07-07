@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useContext } from 'react'
+import { itemsContext } from '../../Contexts/StoreContext'
 import './NavBar.css'
 import { assets } from '../../assets/assets'
 import { CiDeliveryTruck } from "react-icons/ci";
@@ -9,7 +11,8 @@ import { Link } from 'react-router-dom';
 
 
 const NavBar = () => {
-    const [menu, setMenu] = useState('menu')
+    const { cartItems } = useContext(itemsContext)
+    console.log(cartItems);
     console.log('NAVBAR RERENDER');
     return (
         <>
