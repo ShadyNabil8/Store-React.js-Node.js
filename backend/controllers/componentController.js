@@ -1,11 +1,12 @@
 import componentModel from '../models/componentModle.js'
 import categoryModel from '../models/categoryModel.js'
 import asyncHandler from "express-async-handler"
+import mongoose from 'mongoose'
 import fs from 'fs'
 
 
 const component_add = asyncHandler(async (req, res) => {
-    // console.log(req.body);
+    console.log(req.body);
     const component = new componentModel({
         name: req.body.name,
         description: req.body.description,
@@ -32,6 +33,39 @@ const component_list = asyncHandler(async (req, res) => {
     })
 });
 
+const component_find = asyncHandler(async (req, res) => {
+    const { name, type } = req.query;
+    let data;
+    if (type === 'id') {
+
+    }
+    else if (type === 'category' || type === 'sub') {
+        const category = await categoryModel.findOne({ name: name });
+        if (!category) {
+            return res.status(404).send({
+                success: false,
+                message: 'Category not found'
+            });
+        }
+        const categoryId = category._id.toString();
+        if (type === 'category')
+            data = await componentModel.find({ category: categoryId })
+        else
+            data = await componentModel.find({ subCategory: categoryId })
+    }
+    else {
+        return res.status(400).send({
+            success: false,
+            message: 'Invalid search type'
+        });
+    }
+
+    res.status(200).send({
+        success: true,
+        data: data
+    })
+});
+
 const component_delete = asyncHandler(async (req, res, next) => {
     const component = await componentModel.findById(req.body.id);
     if (component) {
@@ -49,7 +83,7 @@ const component_delete = asyncHandler(async (req, res, next) => {
         const subCategoriesId = [component.category]
         if (component.subCategory) subCategoriesId.push(component.subCategory)
         await categoryModel.updateMany({ _id: { $in: subCategoriesId } }, { $inc: { count: -1 } });
-        
+
         res.status(200).send({
             success: true,
             data: component
@@ -61,4 +95,4 @@ const component_delete = asyncHandler(async (req, res, next) => {
     }
 });
 
-export default { component_add, component_list, component_delete }
+export default { component_add, component_list, component_delete, component_find }

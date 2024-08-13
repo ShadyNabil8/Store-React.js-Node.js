@@ -9,6 +9,7 @@ export const itemsContext = createContext(null);
 const StoreContext = ({ children }) => {
 
     const [cartItems, setCartItems] = useState({})
+    const [items, setItems] = useState([])
 
     const removeFromCart = (id) => {
         setCartItems(prevCartItems => {
@@ -34,12 +35,16 @@ const StoreContext = ({ children }) => {
             }
         });
     };
+    useEffect(() => {
 
+    }, [])
     const contextValue = {
         items_list,
         cartItems,
         addToCart,
-        removeFromCart
+        removeFromCart,
+        items,
+        setItems
     }
 
     return (

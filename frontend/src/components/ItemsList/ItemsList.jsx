@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Item from '../Item/Item'
 import './ItemsList.css'
 import { FaListUl } from "react-icons/fa6";
 import { BsFillGrid3X3GapFill } from "react-icons/bs";
 import axios from 'axios'
+import { itemsContext } from '../../Contexts/StoreContext'
 
 const ItemsList = ({ selectedCategory }) => {
-    const [items, setItems] = useState([])
-    console.log('ITEMLIST RERNDER');
+    // const [items, setItems] = useState([])
+    let { items, setItems } = useContext(itemsContext)
     const [display, setDisplay] = useState('grid');
     const featchItemList = async () => {
         try {
@@ -28,7 +29,7 @@ const ItemsList = ({ selectedCategory }) => {
     }
     useEffect(() => {
         featchItemList()
-    },[selectedCategory])
+    }, [selectedCategory])
     return (
         <div className='items-view'>
             <div className='display-control'>

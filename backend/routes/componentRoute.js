@@ -7,6 +7,7 @@ const router = express.Router()
 
 router.post('/add', upload.single('image'), componentController.component_add)
 router.get('/list', componentController.component_list)
+router.get('/find', componentController.component_find)
 router.post('/delete', componentController.component_delete)
 
 export default router 

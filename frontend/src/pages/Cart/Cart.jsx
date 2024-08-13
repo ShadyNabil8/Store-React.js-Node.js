@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 import './Cart.css'
 
 const Cart = () => {
-  let { items_list, cartItems, addToCart, removeFromCart } = useContext(itemsContext)
+  let { items_list, cartItems, addToCart, removeFromCart, items, setItems } = useContext(itemsContext)
+  console.log(items_list);
 
   let totalPrice = 0;
   const handleCounterChange = (event, id) => {
@@ -35,18 +36,20 @@ const Cart = () => {
 
         {
           Object.entries(cartItems).filter(([id, quantity]) => quantity > 0).map(([id, quantity]) => {
-            totalPrice += (items_list[id - 1].price * cartItems[id]);
+            const item = items.find((i) => id === i._id)
+            totalPrice += (item.price * cartItems[id]);
+            
             return (
               <div className="cart-item" key={id}>
                 <ImCross className="remove-icon" onClick={() => { removeFromCart(id) }} />
                 <div className="item-info">
-                  <img src={items_list[id - 1].image}></img>
+                  <img src={`http://localhost:5000/images/${item.image}`}></img>
                   <p className='item-title'>Product</p>
-                  <p className='item-name'>{items_list[id - 1].name}</p>
+                  <p className='item-name'>{item.name}</p>
                 </div>
                 <div className="item-price">
                   <p className='item-title'>Price</p>
-                  <p>EGP {items_list[id - 1].price}</p>
+                  <p>EGP {item.price}</p>
                 </div>
                 <div className="quantity-counter">
                   <p className='item-title'>Quantity</p>
@@ -54,7 +57,7 @@ const Cart = () => {
                 </div>
                 <div className="total-price">
                   <p className='item-title'>Subtotal</p>
-                  <p>EGP {items_list[id - 1].price * cartItems[id]}</p>
+                  <p>EGP {item.price * cartItems[id]}</p>
                 </div>
               </div>
             )

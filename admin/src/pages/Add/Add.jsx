@@ -18,9 +18,13 @@ const Add = () => {
     price: ''
   })
   const onDataChange = (e) => {
+    console.log(e.target.name);
+    console.log(e.target.value);
+    
     const { name, value } = e.target
     setData((prevData) => {
       if (name == 'category') {
+        getSubCategory(value)
         return {
           ...prevData,
           category: value,
@@ -34,25 +38,20 @@ const Add = () => {
         }
       }
     });
-
-    if (name === 'category') {
-      getSubCategory(value)
-    }
-
   }
 
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
+    let formData = new FormData();
     formData.append('image', image);
     formData.append('name', data.name);
     formData.append('description', data.description);
-    ['Arduino & Development Boards', 'shadynabil'].forEach(category => {
-      formData.append('category', category);
-    });
+    formData.append('category', data.category);
+    formData.append('subCategory', data.subCategory);
     formData.append('price', data.price);
     console.log(formData);
+
     try {
       const respone = await axios.post('http://localhost:5000/component/add', formData);
       toast.success(respone.data.message);

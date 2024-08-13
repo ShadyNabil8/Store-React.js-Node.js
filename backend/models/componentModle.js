@@ -27,6 +27,11 @@ const ComponentScheme = new mongoose.Schema({
         ref: 'Category',
         required: false
     },
+    inStock: {
+        type: Number,
+        default: 0
+
+    }
 })
 
 export default mongoose.models.Component || mongoose.model('Component', ComponentScheme)
